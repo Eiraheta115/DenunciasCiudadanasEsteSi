@@ -1,0 +1,40 @@
+#menu-0 .mbr-brand__name {
+  font-size: 16px;
+}
+#menu-0.mbr-navbar--stuck .mbr-navbar__section {
+  background: #2c2c2c;
+  margin: 60px;
+}
+#menu-0 .mbr-navbar__hamburger {
+  color: #ffffff;
+}
+#header4-7 H1 {
+  color: #000000;
+}
+#header4-7 P {
+  color: #000000;
+}
+#contacts1-8 P {
+  color: #000000;
+}
+#contacts1-8 DIV {
+  color: #000000;
+}
+#ext_menu-11 .mbr-brand__name {
+  font-size: 16px;
+}
+#ext_menu-11.mbr-navbar--stuck .mbr-navbar__section {
+  background: #ffffff;
+}
+#ext_menu-11 .mbr-navbar__section {
+  background: #ffffff;
+}
+#ext_menu-11 .mbr-navbar__hamburger {
+  color: #000000;
+}
+#ext_menu-11 .mbr-brand__name a {
+  font-size: 16px;
+}
+.mbr-header__text_manejo{
+  color: #000000;
+}

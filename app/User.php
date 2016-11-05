@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nombre', 'apellido', 'email', 'direccion', 'dui', 'rol', 'entidad', 'fecha_nacimiento', 'password',
     ];
 
     /**
@@ -26,4 +26,25 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+    *
+    *Boot the model
+    *
+    */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->token = str_random(40);
+        });
+    }
+
+    public function Verified()
+    {
+        $this->verified = 1;
+        $this->token = null;
+
+        $this->save();
+    }
 }

@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Mail\ConfirmationEmail;
+use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Validator;
 
 class RegisterController extends Controller
 {
@@ -48,8 +52,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'nombre' => 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'apellido'=> 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
             'email' => 'required|email|max:255|unique:users',
+            'direccion'=> 'required|max:255',
+            'dui'=> 'required|digitS:9',
             'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -63,9 +70,28 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
             'email' => $data['email'],
+            'direccion' => $data['direccion'],
+            'dui' => $data['dui'],
+            'fecha_nacimiento' => $data['fecha'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function register(Request $request){
+    $this->validator($request->all())->validate();
+     event(new Registered($user = $this->create($request->all())));
+     Mail::to($user->email)->send(new ConfirmationEmail($user));
+     return back()->with('status', 'Por favor confirme su dirección de Email.');
+    }
+
+    public function confirmEmail($token)
+    {
+        User::whereToken($token)->firstOrFail()->Verified();
+
+        return redirect('login')->with('status', '¡Ahora estas confirmado! por favor inicie sesion.');
+    }
+
 }
