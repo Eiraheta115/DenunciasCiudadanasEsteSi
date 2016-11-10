@@ -20,4 +20,7 @@ class FontController extends Controller
 	public function ayuda(){
 		return view('ayuda');
 	}
+	public function denuncias(){
+        return view('denuncias');
+    }
 }

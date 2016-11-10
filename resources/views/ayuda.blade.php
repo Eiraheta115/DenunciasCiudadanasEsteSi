@@ -1,8 +1,8 @@
  @extends('layouts.principal')
 
 @section('content')
-
-<div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
+ <div class="mbr-box mbr-box--stretched">
+ <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
  <div class="mbr-hero animated fadeInUp">            
 <section class="mbr-section mbr-section--relative mbr-section--fixed-size" id="features1-12" style="background-color:#CCCCFF ">
     
@@ -57,11 +57,11 @@
                 </div>
                 <div class="mbr-section__container mbr-section__container--middle">
                     <div class="mbr-article mbr-article--wysiwyg">
-                        <p>Realizar la denuncia despues de presionar en el boton Denuncia, llenar el formulario respectivo y si tiene evidencia multimedia subirla junto con el formulario</p>
+                        <p>Realizar la denuncia despues de presionar en el boton Denuncia, llenar el formulario respectivo y si tiene evidencia multimedia subirla junto con el formulario, debes estar ya registrado</p>
                     </div>
                 </div>
                 <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 93px;">
-                    <div class="mbr-buttons mbr-buttons--center"><a href="" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default">Denuncia</a></div>
+                    <div class="mbr-buttons mbr-buttons--center"><a href="{{ url('/login') }}" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default">Denuncia</a></div>
                 </div>
             </div>
             
@@ -76,14 +76,15 @@
                 </div>
                 <div class="mbr-section__container mbr-section__container--middle">
                     <div class="mbr-article mbr-article--wysiwyg">
-                        <p>Puede revisar &nbsp;el estado sus denuncias privadas por medio de un codigo que se le proporcionara en el momento de guardar la denuncia&nbsp;</p>
+                        <p>Puede revisar &nbsp;el estado de sus denuncias privadas por medio de un codigo que se le proporcionara en el momento de guardar la denuncia&nbsp;</p>
                     </div>
                 </div>
                 <div class="mbr-section__container mbr-section__container--last" style="padding-bottom: 93px;">
                     <div class="mbr-buttons mbr-buttons--center"><a href="" class="mbr-buttons__btn btn btn-wrap btn-xs-lg btn-default">Estado de la Denuncia</a></div>
                 </div>
             </div>
-            
+            </div>
+            </div>
            </div> 
             
         </div>

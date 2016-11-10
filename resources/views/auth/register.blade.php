@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- /Ayuda a visualizar el contenido del panel de Registro -->
-            <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
+ <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
                     <!-- /Intentando que funcione y salga en el centro -->
                     <div class="container" id="panelDeRegistro">
                         <div class="row">

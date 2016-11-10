@@ -1,7 +1,7 @@
 @extends('layouts.principal')
 
 @section('content')
-
+<!-- Cuidado no tocar aqui, esto altera el contenido de cada pantalla -->
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
         <div class="mbr-box__container mbr-section__container container">
             <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">

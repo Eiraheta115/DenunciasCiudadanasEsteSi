@@ -4,7 +4,7 @@
 
 
    <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
-
+<div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
    <!-- /Ayuda a visualizar el contenido del panel de Login-->
 
        <div class="container">
