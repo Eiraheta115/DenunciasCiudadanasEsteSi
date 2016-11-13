@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
+
 class FontController extends Controller
 {
     public function index(){
-		return view('index');
+		if(Auth::guest()){
+			return view('index');
+		}else{
+			return view('home');
+		}
+		
 	}
 	public function login(){
 		return view('login');
