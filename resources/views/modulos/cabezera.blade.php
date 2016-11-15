@@ -51,7 +51,7 @@
                   <a class="mbr-buttons__link btn text-white" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">CERRAR SESION
                   </a> </li>
                   <li class="mbr-navbar__item">
-                    <a href="{{ url('/home') }}" class="mbr-buttons__link btn text-white"  aria-expanded="false"> PERFIL: {{ Auth::user()->name }} <span class="caret"></span></li>
+                    <a href="{{ url('/home') }}" class="mbr-buttons__link btn text-white"  aria-expanded="false"> PERFIL: {{ Auth::user()->nombre }} <span class="caret"></span></li>
                     </a>
                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                       {{ csrf_field() }}

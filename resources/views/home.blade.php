@@ -12,52 +12,52 @@
         <form class="form-horizontal">
  
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup">Nombre</label>
+                        <label class="col-sm-2 control-label" for="formGroup2">Nombre</label>
                         <div class="col-sm-8">
-                          <input class="form-control" type="text" id="formGroup" placeholder="Tu nombre">
+                          <input class="form-control" type="text" id="formGroup2" placeholder="Tu nombre">
                         </div>
                       </div>
  
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup">Apellidos</label>
+                        <label class="col-sm-2 control-label" for="formGroup2">Apellidos</label>
                         <div class="col-sm-8">
-                          <input class="form-control" type="text" id="formGroup">
+                          <input class="form-control" type="text" id="formGroup2">
                         </div>
                       </div>
  
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup" id="tel">Teléfono</label>
+                        <label class="col-sm-2 control-label" for="formGroup2" id="tel">Teléfono</label>
  
                         <div class="input-group col-sm-3">
                           <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                          <input class="form-control" type="text" id="formGroup">
+                          <input class="form-control" type="text" id="formGroup2">
                           
                         </div>
                       </div>
  
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup" id="tel">Correo electrónico</label>
+                        <label class="col-sm-2 control-label" for="formGroup2" id="tel">Correo electrónico</label>
                         <div class="input-group col-sm-3">
                           <span class="input-group-addon">@</span>
-                          <input class="form-control" type="text" id="formGroup">
+                          <input class="form-control" type="text" id="formGroup2">
                           
                         </div>
                       </div>
  
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup">Información biográfica</label>
+                        <label class="col-sm-2 control-label" for="formGroup2">Información biográfica</label>
                         <div class="col-sm-8">
                           
-                          <textarea class="form-control" rows="4" id="formGroup"></textarea>
+                          <textarea class="form-control" rows="4" id="formGroup2"></textarea>
                           
                         </div>
                       </div>
  
                       <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup">Estado</label>
+                        <label class="col-sm-2 control-label" for="formGroup2">Estado</label>
                         <div class="col-sm-4">
                           
-                          <select class="form-control" id="formGroup">
+                          <select class="form-control" id="formGroup2">
                             <option>En línea</option>
                             <option>Ocupado</option>
                             <option>Ausente</option>
@@ -70,8 +70,8 @@
                       </div>
                         <br />
  
-                        <div class="form-group">
-                        <label class="col-sm-2 control-label" for="formGroup"></label>
+                        <div class="form-group2">
+                        <label class="col-sm-2 control-label" for="formGroup2"></label>
                         <div class="col-sm-8">
                           
                             <button type="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>
