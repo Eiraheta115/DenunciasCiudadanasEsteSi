@@ -12,11 +12,11 @@
     <title>Bandeja de Denuncias</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-    <script src="js/jquery.min.js"></script>
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,33 +36,36 @@
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Categorías
+                        {{ Auth::user()->nombre }}
                     </a>
                 </li>
                 <li>
-                    <a href="#">Recibidas</a>
+                    <a href="{{ url('/bandeja/recibidas') }}">Recibidas</a>
                 </li>
                 <li>
-                    <a href="#">Aceptadas</a>
+                    <a href="{{ url('/bandeja/aceptadas') }}">Aceptadas</a>
                 </li>
                 <li>
-                    <a href="#">En investigación</a>
+                    <a href="{{ url('/bandeja/investigacion') }}">En investigación</a>
                 </li>
                 <li>
-                    <a href="#">Documentadas</a>
+                    <a href="{{ url('/bandeja/documentadas') }}">Documentadas</a>
                 </li>
                 <li>
-                    <a href="#">Procesadas</a>
+                    <a href="{{ url('/bandeja/procesadas') }}">Procesadas</a>
                 </li>
                 <li>
-                    <a href="#">Cerradas</a>
+                    <a href="{{ url('/bandeja/cerradas') }}">Cerradas</a>
                 </li>
                 <li>
-                    <a href="#">Denegadas</a>
+                    <a href="{{ url('/bandeja/denegadas') }}">Denegadas</a>
                 </li>
                 <li>
-                    <a href="#">Cerrar Sesión</a>
+                    <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
                 </li>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                </form> 
             </ul>
         </nav>
         <!-- /#sidebar-wrapper -->
@@ -77,12 +80,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 col-lg-offset-2">
-                        <h1>Bandeja de Denuncias.</h1>   
+                        <h1>Bandeja de Denuncias 
+
+                        @foreach(DB::table('entidades')->where('id_entidad', Auth::user()->entidad)->select('nombre_entidad')->get() as $entidad_actual)
+                            {{ $entidad_actual->nombre_entidad }}
+                        @endforeach
+                        
+                        </h1>   
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Denunciante</th>
                                     <th>Asunto de Denuncia</th>
+                                    <th>Estado Actual</th>
                                     <th>Fecha y Hora</th>
                                 </tr>
                             </thead>
