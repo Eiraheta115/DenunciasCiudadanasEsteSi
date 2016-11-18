@@ -39,27 +39,9 @@
                         {{ Auth::user()->nombre }}
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('/bandeja/recibidas') }}">Recibidas</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/aceptadas') }}">Aceptadas</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/investigacion') }}">En investigación</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/documentadas') }}">Documentadas</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/procesadas') }}">Procesadas</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/cerradas') }}">Cerradas</a>
-                </li>
-                <li>
-                    <a href="{{ url('/bandeja/denegadas') }}">Denegadas</a>
-                </li>
+                
+                @yield('opciones_barra')
+
                 <li>
                     <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
                 </li>
@@ -77,32 +59,9 @@
     			<span class="hamb-middle"></span>
 				<span class="hamb-bottom"></span>
             </button>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 col-lg-offset-2">
-                        <h1>Bandeja de Denuncias 
 
-                        @foreach(DB::table('entidades')->where('id_entidad', Auth::user()->entidad)->select('nombre_entidad')->get() as $entidad_actual)
-                            {{ $entidad_actual->nombre_entidad }}
-                        @endforeach
-                        
-                        </h1>   
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Denunciante</th>
-                                    <th>Asunto de Denuncia</th>
-                                    <th>Estado Actual</th>
-                                    <th>Fecha y Hora</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @yield('content_bandeja')
-                            </tbody>
-                        </table>                      
-                    </div>
-                </div>
-            </div>
+            @yield('contenido')
+
         </div>
         <!-- /#page-content-wrapper -->
 

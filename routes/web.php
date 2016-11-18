@@ -28,3 +28,4 @@ Route::get('/home', 'HomeController@index');
 Route::get('denuncias','FontController@denuncias');
 
 Route::resource('/bandeja','DenunciasSeguimientoController');
+Route::resource('/admin_entidades','EntidadesAdminController');
