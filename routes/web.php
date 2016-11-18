@@ -29,3 +29,4 @@ Route::get('denuncias','FontController@denuncias');
 
 Route::resource('/bandeja','DenunciasSeguimientoController');
 Route::resource('/admin_entidades','EntidadesAdminController');
+Route::resource('/admin_estados','EstadoDenunAdminController');

@@ -6,25 +6,24 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Entidad;
+use App\EstadoDenuncia;
 
 use Exception;
 
-class EntidadesAdminController extends Controller
+class EstadoDenunAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     private $path = '/admin_entidades';
-
+     private $path = '/admin_estados';
 
     public function index()
     {
-        $entidades = Entidad::all();
+        $estados = EstadoDenuncia::all();
 
-        return view($this->path.'/admin_entidades')->with('entidades',$entidades);
+        return view($this->path.'/admin_estados')->with('estados',$estados);
     }
 
     /**
@@ -34,7 +33,7 @@ class EntidadesAdminController extends Controller
      */
     public function create()
     {
-        return view($this->path.'/create_entidades');
+        return view($this->path.'/create_estados');
     }
 
     /**
@@ -46,14 +45,16 @@ class EntidadesAdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nombre_entidad' => 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'nombre_estado' => 'required|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'descripcion_estado' => 'required|max:255|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
         ]);
-        
-        try{
-            $n_entidad = new Entidad();
 
-            $n_entidad->nombre_entidad = $request->nombre_entidad;
-            $n_entidad->save();
+        try{
+            $n_estado = new EstadoDenuncia();
+
+            $n_estado->nombre_estado = $request->nombre_estado;
+            $n_estado->descripcion_estado = $request->descripcion_estado;
+            $n_estado->save();
 
             return redirect($this->path);
         }catch(Exception $e){
@@ -81,13 +82,13 @@ class EntidadesAdminController extends Controller
     public function edit($id)
     {
         try{
-            $entidad = Entidad::findOrFail($id);
+            $estado = EstadoDenuncia::findOrFail($id);
 
-            return view($this->path.'/edit_entidades')->with('entidad',$entidad);
+            return view($this->path.'/edit_estados')->with('estado',$estado);
 
         }catch(Exception $e){
-             return "Error al intentar modificar la Entidad. Puede que no exista o ya fue borrada";
-        }        
+             return "Error al intentar modificar el Estado de Denuncias. Puede que no exista o ya fue borrada";
+        }
     }
 
     /**
@@ -100,18 +101,20 @@ class EntidadesAdminController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'nombre_entidad' => 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'nombre_estado' => 'required|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'descripcion_estado' => 'required|max:255|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
         ]);
         
         try{
-            $entidad = Entidad::findOrFail($id);
-            $entidad->nombre_entidad = $request->nombre_entidad;
-            $entidad->save();
+            $estado = EstadoDenuncia::findOrFail($id);
+            $estado->nombre_estado = $request->nombre_estado;
+            $estado->descripcion_estado = $request->descripcion_estado;
+            $estado->save();
 
             return redirect($this->path);
 
         }catch(Exception $e){
-             return "Error al intentar Actualizar la entidad. No coindide con los registros";
+             return "Error al intentar Actualizar el Estado de Denuncia. No coindide con los registros";
         }
     }
 
@@ -124,11 +127,11 @@ class EntidadesAdminController extends Controller
     public function destroy($id)
     {
         try{
-            $entidad = Entidad::findOrFail($id);
-            $entidad->delete();
+            $estado = EstadoDenuncia::findOrFail($id);
+            $estado->delete();
             return redirect($this->path);
         }catch(Exception $e){
-            return "No se pudo eliminar la Entidad";
+            return "No se pudo eliminar el Estado de Denuncia";
         }
     }
 }
