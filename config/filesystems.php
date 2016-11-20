@@ -40,8 +40,14 @@ return [
     | been setup for each driver as an example of the required options.
     |
     */
+   
 
     'disks' => [
+
+        'archivo_multimedia' => [
+            'driver' => 'local',
+            'root' => public_path('archivo_multimedia'),
+        ],
 
         'local' => [
             'driver' => 'local',

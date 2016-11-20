@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('denuncias','FontController@denuncias');
 
+Route::resource('/denuncia','DenunciaController'); 
 Route::resource('/bandeja','DenunciasSeguimientoController');
 Route::resource('/admin_entidades','EntidadesAdminController');
 Route::resource('/admin_estados','EstadoDenunAdminController');
