@@ -54,5 +54,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'user_rol' => \App\Http\Middleware\UserRolMiddleware::class,
         'evalu_denun_rol' => \App\Http\Middleware\EvaluDenunRolMiddleware::class,
+        'admin_rol' => \App\Http\Middleware\AdminRolMiddleware::class,
     ];
 }

@@ -18,7 +18,11 @@ class EntidadesAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
      private $path = '/admin_entidades';
-
+     
+     public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('admin_rol');
+    }
 
     public function index()
     {
@@ -46,7 +50,7 @@ class EntidadesAdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nombre_entidad' => 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'nombre_entidad' => 'required|unique:entidades|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
         ]);
         
         try{

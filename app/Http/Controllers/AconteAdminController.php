@@ -19,6 +19,11 @@ class AconteAdminController extends Controller
      */
      private $path = '/admin_acontecimientos';
 
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('admin_rol');
+    }
+
     public function index()
     {
         $acontecimiento = Acontecimiento::all();
@@ -45,9 +50,9 @@ class AconteAdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nombre_acontecimiento' => 'required|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'nombre_acontecimiento' => 'required|unique:acontecimientos|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
         ]);
-        
+               
         try{
             $n_acont = new Acontecimiento();
 
@@ -98,11 +103,11 @@ class AconteAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {      
         $this->validate($request,[
             'nombre_acontecimiento' => 'required|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
-        ]);
-        
+        ]); 
+         
         try{
             $acontecimiento = Acontecimiento::findOrFail($id);
             $acontecimiento->nombre_acontecimiento = $request->nombre_acontecimiento;

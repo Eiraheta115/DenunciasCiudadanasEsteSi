@@ -56,7 +56,7 @@ class RegisterController extends Controller
             'apellido'=> 'required|max:150|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
             'email' => 'required|email|max:255|unique:users',
             'direccion'=> 'required|max:255',
-            'dui'=> 'required|digitS:9',
+            'dui'=> 'required|digitS:9|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
     }

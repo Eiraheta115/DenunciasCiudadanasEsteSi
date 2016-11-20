@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/preview-ESCUDOELSALVADOR.png" type="image/x-icon">
 
     <!-- Custom CSS -->
     <link href="/css/simple-sidebar.css" rel="stylesheet">

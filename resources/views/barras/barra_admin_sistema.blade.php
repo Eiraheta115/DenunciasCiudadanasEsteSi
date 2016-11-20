@@ -3,9 +3,6 @@
                     <a href="{{ url('/admin_users') }}">Gestionar Usuarios</a>
                 </li>
                 <li>
-                    <a href="{{ url('/admin_evaluadores') }}">Gestionar Evaluadores</a>
-                </li>
-                <li>
                     <a href="{{ url('/admin_estados') }}">Gestionar Estados</a>
                 </li>
                 <li>

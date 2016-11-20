@@ -18,6 +18,11 @@ class EstadoDenunAdminController extends Controller
      * @return \Illuminate\Http\Response
      */
      private $path = '/admin_estados';
+    
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('admin_rol');
+    }
 
     public function index()
     {
@@ -45,7 +50,7 @@ class EstadoDenunAdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nombre_estado' => 'required|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+            'nombre_estado' => 'required|unique:estado_denuncias|max:30|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
             'descripcion_estado' => 'required|max:255|regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
         ]);
 

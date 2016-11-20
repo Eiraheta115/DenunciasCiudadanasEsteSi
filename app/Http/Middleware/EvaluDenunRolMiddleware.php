@@ -28,6 +28,8 @@ class EvaluDenunRolMiddleware
 
         if($user_rol == '1'){
             return redirect('/home');
+        }elseif($user_rol == '3'){
+            return redirect('/admin_users');
         }
         return $next($request);
     }
