@@ -15,7 +15,7 @@
                         <div class="mbr-navbar__column">
                             <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
                             <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="{{ url('/ayuda') }}">AYUDA</a></li>
-                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="">ESTADISTICAS</a></li>
+                            <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="{{url('/estadisticas')}}">ESTADISTICAS</a></li>
                             <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="">ESTADO DE DENUNCIA</a></li>
                             <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="{{ url('/login') }}">INICIAR SESIÓN</a></li>
                             <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-black" href="{{ url('/register') }}">REGISTRARSE</a></li></ul>                            
@@ -45,10 +45,11 @@
           <nav class="mbr-navbar__menu-box mbr-navbar__menu-box--inline-right">
             <div class="mbr-navbar__column">
               <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
-                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="">HISTORIAL DE DENUNCIAS</a></li> 
-                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{ url('/denuncias') }}">DENUNCIA</a></li>
+                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="">HISTORIAL</a></li> 
+                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{ url('/denuncias') }}">DENUNCIAS</a></li>
+                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url('/estadisticas')}}">ESTADISTICAS</a></li>
                 <li class="mbr-navbar__item">
-                  <a class="mbr-buttons__link btn text-white" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">CERRAR SESION
+                  <a class="mbr-buttons__link btn text-white" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">SALIR
                   </a> </li>
                   <li class="mbr-navbar__item">
                     <a href="{{ url('/home') }}" class="mbr-buttons__link btn text-white"  aria-expanded="false"> PERFIL: {{ Auth::user()->nombre }} <span class="caret"></span></li>

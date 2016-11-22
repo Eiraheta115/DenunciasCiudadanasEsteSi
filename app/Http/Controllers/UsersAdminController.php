@@ -93,7 +93,12 @@ class UsersAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $user = User::findOrFail($id);
+            return view($this->path.'/show_users')->with('user',$user);
+        }catch(Exception $e){
+            return  "Error al recuperar el Usuario".$e->getMessage();
+        }
     }
 
     /**

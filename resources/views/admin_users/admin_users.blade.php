@@ -29,7 +29,7 @@
                                 @foreach($users as $user)
                                     <tr>
                                         <td> {{ $user->id }} </td>
-                                        <td> {{ $user->nombre }} </td>
+                                        <td> <a href="/admin_users/{{$user->id}}"> {{ $user->nombre }} </a></td>
                                         <td> {{ $user->apellido }} </td>
                                         <td>{{$user->email}}</td>
                                         @foreach(DB::table('roles')->where('id_rol',$user->rol)->select('nombre_rol')->get() as $rol)

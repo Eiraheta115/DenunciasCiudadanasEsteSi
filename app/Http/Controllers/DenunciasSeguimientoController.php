@@ -58,7 +58,7 @@ class DenunciasSeguimientoController extends Controller
                             $join->on('denuncias.id_entidad','=','entidades.id_entidad')
                             ->where('denuncias.id_entidad','=', $id_entidad);
                         })
-                        ->select('users.nombre','users.apellido','acontecimientos.nombre_acontecimiento','estado_denuncias.nombre_estado','denuncias.created_at')
+                        ->select('users.nombre','users.apellido','acontecimientos.nombre_acontecimiento','estado_denuncias.nombre_estado','denuncias.created_at','id_denuncia')
                         ->orderBy('denuncias.created_at','asc')
                         ->get();
         return $denuncia;
