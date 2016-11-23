@@ -1,13 +1,22 @@
-@extends('barras/barra_lateral')
+@extends('layouts/principal')
 
-@extends('barras/barra_admin_sistema')
+@section('contenido_admin')
 
-@section('contenido')
+<div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
+    <div class="mbr-box mbr-box--stretched">
+        <div class="mbr-box__magnet mbr-box__magnet--center-center">
 
-        <div class="container">
+            <div class="container" id="panelAdminUsers">
                 <div class="row">
-                    <div class="col-lg-7 col-lg-offset-3">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Datos de Usuarios</div>
+                                <div class="panel-body">
+
+                   <div class="col-lg-8 col-lg-offset-3">
                         <h1>Gestión de Usuarios</h1>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2">
                         @if($user)  
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover table-bordered">
@@ -83,7 +92,14 @@
                                     <a href="{{ route('admin_users.edit',$user->id) }}" class="btn btn-info btn">Editar</a>
                                 </div>
                             </div>           
+                    </div>            
                     </div>
+                </div>
+            </div>
+            </div>
+                </div>
+            </div>
+            </div>
                 </div>
             </div>
 

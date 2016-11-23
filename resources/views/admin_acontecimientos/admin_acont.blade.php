@@ -1,11 +1,18 @@
-@extends('barras/barra_lateral')
+@extends('layouts/principal')
 
-@extends('barras/barra_admin_sistema')
+@section('contenido_admin')
 
-@section('contenido')
+<div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
+    <div class="mbr-box mbr-box--stretched">
+        <div class="mbr-box__magnet mbr-box__magnet--center-center">
 
-        <div class="container">
+            <div class="container" id="panelAdminUsers">
                 <div class="row">
+                    <div class="col-md-11 col-lg-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Administración de Acontecimientos</div>
+                                <div class="panel-body">
+
                     <div class="col-lg-11 col-lg-offset-1">
                         <h1 style="display: inline;">Gestionar Acontecimientos</h1>
                         <a href="{{ route('admin_acontecimientos.create')}}" class="btn btn-primary btn-sm">Crear Acontecimiento</a>
@@ -43,8 +50,15 @@
                             </table>
                         </div>  
                         
-                        @else {{ 'No hay Entidades registradas.' }}   @endif               
+                        @else {{ 'No hay Acontecimientos registradas.' }}   @endif               
                     </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                </div>
+            </div>
+            </div>
                 </div>
             </div>
 

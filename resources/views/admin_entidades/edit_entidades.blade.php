@@ -1,12 +1,18 @@
 @extends('barras/barra_lateral')
+@extends('layouts/principal')
 
-@extends('barras/barra_admin_sistema')
+@section('contenido_admin')
+<div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
+    <div class="mbr-box mbr-box--stretched">
+        <div class="mbr-box__magnet mbr-box__magnet--center-center">
 
-@section('contenido')
-
-        <div class="container">
+            <div class="container" id="panelEditUser">
                 <div class="row">
-                    <div class="col-lg-7 col-lg-offset-2">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Edición de las Entidades</div>
+                                <div class="panel-body">
+<div class="col-lg-8 col-lg-offset-2">
                         <h1>Gestionar Entidades</h1>                 
                     </div>
                 </div>
@@ -28,15 +34,22 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-lg-offset-4 col-lg-2">
+                                <div class="col-lg-offset-2 col-lg-2">
                                     <button type="submit" class="btn btn-info">Actualizar</button>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <a href="{{ url('/admin_entidades') }}" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </div>
                         </form>
                     </di>
+                    </div>
+                </div>
+            </div>
+            </div>
+                </div>
+            </div>
+            </div>
                 </div>
             </div>
 

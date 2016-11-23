@@ -2,12 +2,9 @@
     use App\Entidad;
     use App\Rol;
 ?>
-@extends('barras/barra_lateral')
+@extends('layouts/principal')
 
-@extends('barras/barra_admin_sistema')
-
-
-@section('contenido')
+@section('contenido_admin')
     <script type="text/javascript">
 
 function ocul(){
@@ -21,13 +18,22 @@ function ocul(){
 
 </script>
 
-        <div class="container">
+        <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center mbr-after-navbar">
+    <div class="mbr-box mbr-box--stretched">
+        <div class="mbr-box__magnet mbr-box__magnet--center-center">
+
+            <div class="container" id="panelCrearUser">
                 <div class="row">
-                    <div class="col-lg-7 col-lg-offset-2">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Crear Usuario</div>
+                                <div class="panel-body">
+                
+                    <div class="col-lg-8 col-lg-offset-2">
                         <h1>Gestionar Usuarios</h1>                 
                     </div>
-                </div>
-                <div class="row">
+              
+                
                     <div class="col-lg-10 col-lg-offset-2">
                         <form class="form-horizontal" name="regis" role="form" method="POST" action="/admin_users">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -168,7 +174,7 @@ function ocul(){
                             </div>
                             <div class="form-group" id='verificado'>
                                 <label for="verified" class="col-lg-4 control-label">Verificado</label>
-                                <div class="col-lg-6">
+                                <div class="col-lg-1">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="verified" id="verified">
@@ -181,13 +187,21 @@ function ocul(){
                                 <div class="col-lg-offset-4 col-lg-2">
                                     <button type="submit" class="btn btn-info">Guardar</button>
                                 </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-4">
                                     <a href="{{ url('/admin_users') }}" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </div>
                         </form>
                     </di>
-                </div>
-            </div>
+                    </di>
+                    </di>
+                    </di>
+                    </di>
+                    </di>
+                    </di>
+                    </di>
+                    </di>
+                
+            
 
 @endsection

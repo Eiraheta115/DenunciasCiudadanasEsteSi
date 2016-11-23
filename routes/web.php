@@ -25,12 +25,11 @@ $this->get('register/confirm/{token}','Auth\RegisterController@confirmEmail');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('denuncias','FontController@denuncias');
 
 Route::get('/estadisticas','EstadisticasController@index');
 Route::post('/estadisticas','EstadisticasController@recibir');
 
-Route::resource('/denuncia','DenunciaController'); 
+Route::resource('/denuncias','DenunciaController'); 
 Route::resource('/bandeja','DenunciasSeguimientoController');
 Route::resource('/admin_entidades','EntidadesAdminController');
 Route::resource('/admin_estados','EstadoDenunAdminController');

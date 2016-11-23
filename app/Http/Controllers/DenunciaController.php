@@ -27,9 +27,14 @@ class DenunciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('user_rol');
+    }
+
     public function index()
     {
-        //
+        return view('denuncias');
     }
 
     /**

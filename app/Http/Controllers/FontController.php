@@ -14,7 +14,7 @@ class FontController extends Controller
 		if(Auth::guest()){
 			return view('index');
 		}else{
-			return view('home');
+			return redirect('/home');
 		}
 		
 	}
@@ -27,7 +27,4 @@ class FontController extends Controller
 	public function ayuda(){
 		return view('ayuda');
 	}
-	public function denuncias(){
-        return view('denuncias');
-    }
 }
