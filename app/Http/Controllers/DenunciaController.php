@@ -68,11 +68,11 @@ class DenunciaController extends Controller
          
 
         
-        /*$id_acontecimiento =  $request->id_acontecimiento;
+       $id_acontecimiento =  $request->id_acontecimiento;
         $id_entidad = DB::table('acontecimientos')
-        ->where('id_acontecimiento','=','$id_acontecimiento')
+        ->where('id_acontecimiento','=',$id_acontecimiento)
         ->value('id_entidad');
-        $denuncia->id_entidad = (int)$id_entidad;*/
+        $denuncia->id_entidad = $id_entidad; 
         
 
         $denuncia->save();

@@ -36,7 +36,7 @@ class DenunciasSeguimientoController extends Controller
             case "documentadas": $id_estado = 4; break;
             case "procesadas": $id_estado = 5; break;
             case "cerradas": $id_estado = 6; break;
-            case "denegadas": $id_estado = 7; break;
+            case "denegadas": $id_estado = 11; break;
 
         }
 

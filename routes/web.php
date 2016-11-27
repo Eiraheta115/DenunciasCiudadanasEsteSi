@@ -35,3 +35,4 @@ Route::resource('/admin_entidades','EntidadesAdminController');
 Route::resource('/admin_estados','EstadoDenunAdminController');
 Route::resource('/admin_acontecimientos','AconteAdminController');
 Route::resource('/admin_users','UsersAdminController');
+Route::resource('/detalles','DetallesDenunciaController');

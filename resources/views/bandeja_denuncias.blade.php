@@ -43,7 +43,7 @@
                                                             <td> {{ $fila->nombre_acontecimiento }} </td>
                                                             <td> {{ $fila->nombre_estado }} </td>
                                                             <td> {{ $fila->created_at }} </td>
-                                                            <td> <button type="button" class="btn btn-info btn-sm ">Ver detalles</button> </td>
+                                                            <td> <a href="/detalles/{{$fila->id_denuncia}}" type="button" class="btn btn-info btn-sm ">Ver detalles</a> </td>
                                                         </tr>
 
                                                     @endforeach
