@@ -2,12 +2,13 @@
 
 namespace App\Mail;
 
+use App\Denuncia;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Notificaciones extends Mailable
+class Notificacion extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +17,13 @@ class Notificaciones extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $denuncia;
+    public $observaciones;
+
+    public function __construct(Denuncia $denuncia, $obser)
     {
-        //
+        $this->denuncia = $denuncia;
+        $this->observaciones = $obser;
     }
 
     /**
@@ -28,6 +33,6 @@ class Notificaciones extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('emails.notificacion');
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Notificacion;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Denuncia;
@@ -97,14 +99,16 @@ class DetallesDenunciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'observaciones' => 'regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
-        ]);
+       // $this->validate($request,[
+         //   'observaciones' => 'regex:/^([a-zA-ZñÑáéíóúÁÉÍÓÚ_-])+((\s*)+([a-zA-ZñÑáéíóúÁÉÍÓÚ_-]*)*)+$/',
+        //]);
+        
         try{
             $denuncia = Denuncia::findOrFail($id);
             if($request->estado != 0){
                 $denuncia->id_estado = $request->estado;
                 $denuncia->save();
+                $this->notificar($id, $denuncia->id_user, $request);
             }
             return redirect('/bandeja');
         }catch(Exception $e){
@@ -112,6 +116,18 @@ class DetallesDenunciaController extends Controller
         }
     }
 
+    public function notificar($id_denun, $id_user, $request){
+        try{
+            $user = User::findOrFail($id_user);
+            $denuncia = Denuncia::findOrFail($id_denun);
+            Mail::to($user->email)->send(new Notificacion($denuncia, $request->observaciones));
+            
+            return redirect('/bandeja');
+            
+        }catch(Exception $e){
+            return "No se pudo notificar al usuario".$e->getMessage();
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *
