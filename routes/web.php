@@ -16,6 +16,8 @@ Route::get('/', 'FontController@index');
 Route::get('login','FontController@login');
 Route::get('register','FontController@register');
 Route::get('ayuda','FontController@ayuda');
+Route::get('editar','useroController@editar');
+Route::get('Guardar/{id}','useroController@guardar');
 
 $this->get('register/confirm/{token}','Auth\RegisterController@confirmEmail');
 /*Route::get('/', function () {
@@ -29,7 +31,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/estadisticas','EstadisticasController@index');
 Route::post('/estadisticas','EstadisticasController@recibir');
 
-Route::resource('/denuncias','DenunciaController'); 
+Route::resource('/denuncia','DenunciaController'); 
 Route::resource('/bandeja','DenunciasSeguimientoController');
 Route::resource('/admin_entidades','EntidadesAdminController');
 Route::resource('/admin_estados','EstadoDenunAdminController');

@@ -46,7 +46,7 @@
             <div class="mbr-navbar__column">
               <ul class="mbr-navbar__items mbr-navbar__items--right float-left mbr-buttons mbr-buttons--freeze mbr-buttons--right btn-decorator mbr-buttons--active mbr-buttons--only-links">
                 <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="">HISTORIAL</a></li> 
-                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{ url('/denuncias') }}">DENUNCIAS</a></li>
+                <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{ url('/denuncia') }}">DENUNCIAS</a></li>
                 <li class="mbr-navbar__item"><a class="mbr-buttons__link btn text-white" href="{{url('/estadisticas')}}">ESTADISTICAS</a></li>
                 <li class="mbr-navbar__item">
                   <a class="mbr-buttons__link btn text-white" href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">SALIR

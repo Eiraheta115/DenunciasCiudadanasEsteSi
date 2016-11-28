@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Denuncia;
 
+use App\Acontecimiento;
+
 use App\Multimedia;
 
 use Storage;
@@ -22,19 +24,23 @@ use Illuminate\Support\Facades\Auth;
 
 class DenunciaController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+        $this->middleware('user_rol');
+    }
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-     public function __construct(){
-        $this->middleware('auth');
-        $this->middleware('user_rol');
-    }
-
+    
+    
     public function index()
     {
-        return view('denuncias');
+        $acontecimiento = Acontecimiento::all();
+
+        return view('denuncias')->with('acontecimientos',$acontecimiento);
     }
 
     /**
@@ -62,19 +68,16 @@ class DenunciaController extends Controller
         $denuncia->descripcion_denuncia = $request->descripcion_denuncia;
         $denuncia->fecha_hora = $request->fecha;
         $denuncia->id_user = $idusuario;
-        $denuncia->id_municipio = $request->id_municipio;
+        
+        
+       
+        $denuncia->id_municipio = $request->id_municipio + 1;
         $denuncia->id_acontecimiento = $request->id_acontecimiento;
-        
-         
-
-        
-       $id_acontecimiento =  $request->id_acontecimiento;
+        $id_acontecimiento =  $request->id_acontecimiento;
         $id_entidad = DB::table('acontecimientos')
         ->where('id_acontecimiento','=',$id_acontecimiento)
         ->value('id_entidad');
-        $denuncia->id_entidad = $id_entidad; 
-        
-
+        $denuncia->id_entidad = $id_entidad;
         $denuncia->save();
         
         //Insertar datos en tabla multimedias
@@ -89,7 +92,7 @@ class DenunciaController extends Controller
         ->orderby('created_at','DESC')
         ->value('id_denuncia');
         $multimedia->save();
-        return Redirect::to('/denuncias');
+        return Redirect::to('/denuncia');
     }
 
     /**
@@ -137,4 +140,3 @@ class DenunciaController extends Controller
         //
     }
 }
-

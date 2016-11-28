@@ -1,4 +1,4 @@
-  @extends('layouts.principal')
+@extends('layouts.principal')
 
  @section('contenido_usuario')
  <!-- /Ayuda a visualizar el contenido del panel--><!-- Cuidado no tocar aqui, esto altera el contenido de cada pantalla -->
@@ -16,22 +16,15 @@
                             <div class="form-group"> <!-- Denuncia -->
                                 <label for="id_acontecimiento" class="control-label">Tipo de Denuncia</label>
                                 <select class="form-control" name="id_acontecimiento">
-                                    <option value="1">Robo</option>
-                                    <option value="2">Asesinato</option>
-                                    <option value="3">Incendio</option>
-                                    <option value="4">Inundación</option>
-                                    <option value="5">Pleito en lugar público</option>
-                                    <option value="6">Actos Inmorales</option>
-                                    <option value="7">Accidente de tránsito</option>
-                                    <option value="8">Violencia Intrafamiliar</option>
-                                    <option value="9">Acoso Sexual</option>
-                                    <option value="10">Partos</option>                                   
+                                    @foreach($acontecimientos as $acont)
+                                    <option value="{{$acont->id_acontecimiento}}">{{$acont->nombre_acontecimiento}}</option>
+                                    @endforeach                                   
                                 </select>                    
                             </div>
                             <div class="row ">
                                 <!--<div class="col-md-5 col-sm-5 col-xs-5">-->
                                     <span class="help-block text-muted small-font" ><label for="fecha_id" class="control-label">Fecha de Denuncia</label></span>
-                                    <input type="text" class="form-control" name="fecha" placeholder="fecha" />
+                                    <input type="date" class="form-control" name="fecha" placeholder="fecha" />
                                 </div>
                                 <!--<div class="col-md-2 col-sm-2 col-xs-2">
                                     <span class="help-block text-muted small-font" ><label for="hora_id" class="control-label">Hora</label></span>
@@ -42,16 +35,9 @@
                                     <input type="text" class="form-control" name="fechaAcontecimiento" placeholder="CCV" />
                                 </div>-->
                             </div>
-                            <div class="form-group"> <!-- Elija Municipio-->
-                                <label for="id_municipio" class="control-label">Municipio</label>
-                                <select class="form-control" name="id_municipio">
-                                    <option value="1">Apaneca</option>
-                                    <option value="2">El Congo</option>
-                                    <option value="3">Armenia</option>
-                                </select>  
-                            </div>
                             <div class="form-group"> <!-- Elija Departamento-->
-                                <label for="id_departamento" class="control-label">Departamento</label>
+                                <label for="id_departamento" class="control-label">Departamento</label>    
+
                                 <select class="form-control" name="id_departamento">
                                     <option value="1">Ahuachapán</option>
                                     <option value="2">Santa Ana</option>
@@ -69,6 +55,15 @@
                                     <option value="14">La Unión</option>
                                 </select>  
                             </div> 
+                            <div class="form-group"> <!-- Elija Municipio-->
+                                <label for="id_municipio" class="control-label">Municipio</label>
+                                <select class="form-control" name="id_municipio">
+                                    <option value="1">Apaneca</option>
+                                    <option value="2">El Congo</option>
+                                    <option value="3">Armenia</option>
+                                </select>  
+                            </div>
+                            
                             <div class="form-group"> <!-- descripcion de denuncia-->
                                 <label for="denuncia_id" class="control-label">Descripcion</label>
                                 <textarea type="text" class="form-control" id="denuncia_id" name="descripcion_denuncia" placeholder=""></textarea>
